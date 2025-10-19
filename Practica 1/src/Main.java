@@ -1,3 +1,8 @@
+/** Ejercicio 1: La clase CuentaBancaria
+Cree una clase llamada CuentaBancaria que un banco podría utilizar para gestionar las cuentas de sus clientes. Una CuentaBancaria debe incluir cuatro variables de instancia: número de cuenta (tipo String), nombre del titular (tipo String), saldo actual (tipo double) y tipo de cuenta (tipo String - puede ser "Ahorro" o "Corriente").
+Su clase debe tener un constructor que inicialice las cuatro variables de instancia. Proporcione un método establecer y un método obtener para cada variable de instancia. 
+Además, proporcione dos métodos: */
+
 import javax.swing.JOptionPane;
 import java.awt.Component;
 public class Main {
