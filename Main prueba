@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        AppStore app = new AppStore();
+        int opcion;
+
+        do {
+            System.out.println("\n=== MENÚ APP STORE ===");
+            System.out.println("1. Ver información de juegos");
+            System.out.println("2. Comprar licencias");
+            System.out.println("3. Vender licencias");
+            System.out.println("4. Consultar juego más vendido");
+            System.out.println("5. Consultar compras por porcentaje");
+            System.out.println("6. Consultar compras por categoría");
+            System.out.println("7. Salir");
+            System.out.print("Elija una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcion) {
+                case 1:
+                    app.mostrarJuegos();
+                    break;
+                case 2:
+                    System.out.print("Ingrese el nombre del juego: ");
+                    String nombreC = sc.nextLine();
+                    System.out.print("Cantidad a comprar: ");
+                    int cantC = sc.nextInt();
+                    app.comprarLicencias(nombreC, cantC);
+                    break;
+                case 3:
+                    System.out.print("Ingrese el nombre del juego: ");
+                    String nombreV = sc.nextLine();
+                    System.out.print("Cantidad a vender: ");
+                    int cantV = sc.nextInt();
+                    app.venderLicencias(nombreV, cantV);
+                    break;
+                case 4:
+                    app.juegoMasVendido();
+                    break;
+                case 5:
+                    System.out.println("Juegos que deben comprarse por porcentaje: " + app.darComprasPorPorcentaje());
+                    break;
+                case 6:
+                    System.out.println("Juegos que deben comprarse por categoría:");
+                    String[] nombres = {"PuzzleMania", "ShooterMax", "SoccerStars", "BrainBlocks"};
+                    for (String n : nombres) {
+                        if (app.seDebeComprarPorCategoria(n))
+                            System.out.println("- " + n);
+                    }
+                    break;
+                case 7:
+                    System.out.println("Saliendo del sistema...");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (opcion != 7);
+    }
+}
